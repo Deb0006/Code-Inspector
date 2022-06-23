@@ -1,0 +1,39 @@
+.navbar{
+    width: 100%;
+    height: 364px;
+    /* color: white; */
+    /* background-image: url("/images/Pattern.png");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 25% 75%;
+    /* place-content: center; */
+}
+.background{
+    width: 100%;
+    height: 364px;
+    grid-column: span 3;
+    position: absolute;
+    z-index: -1;
+    
+}
+.animatedIcon{
+    color: whitesmoke;
+    padding: 0.5rem;
+    grid-column-start: 3;
+    font-size: 1.5rem;
+}
+.container{
+    text-align: center;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+.logo{
+    color: white;
+    text-shadow: 0px 1px 14px rgba(0, 0, 0, 0.68);
+    font-size: 36px;
+}
+.description{
+    color: black;
+}
