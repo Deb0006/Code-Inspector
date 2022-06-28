@@ -13,9 +13,7 @@ const Navbar = () => {
           OpenAI <br />
           Inspector
         </h1>
-        <a href="" className={styles.description}>
-          Quick view to OpenAI
-        </a>
+        <a className={styles.description}>Quick view to OpenAI</a>
       </div>
       <div className={styles.animatedIcon}>
         <FiAlignCenter />

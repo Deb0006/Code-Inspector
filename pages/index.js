@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
+import Playground from "../components/Playground";
+import Reddit from "../components/Reddit-api";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
+      <Playground />
+      <Reddit />
     </div>
   );
 }

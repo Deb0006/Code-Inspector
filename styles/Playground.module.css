@@ -1,0 +1,44 @@
+.playground{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding-left: 1rem;
+}
+.title{
+    color: black;
+}
+.form{
+    width: 50%;
+}
+.input[type=text] {
+    width: 100%;
+    background-color: #F3F3F3;
+    box-sizing: border-box;
+    border: 2px solid #F3F3F3;
+    border-radius: 15px;
+    font-size: 16px;
+    background-image: url('/images/search-icon.png');
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding: 1rem;
+    padding-left: 2em;
+    margin: 1rem 0;
+}
+.display{
+    width: 322px;
+    height: 106px;
+    background: #F5F5F5;
+    border-radius: 16px;
+    margin: 1rem 0;
+}
+.btn{
+    background: linear-gradient(180deg, #3C5B5E 0%, #547477 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 1rem;
+}
+.btn:hover{
+    background: linear-gradient(180deg, #547477 0%, #3C5B5E 100%);
+}
