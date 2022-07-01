@@ -3,42 +3,88 @@
     flex-direction: column;
     width: 90%;
     padding-left: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 .title{
     color: black;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 31px;
 }
 .form{
-    width: 50%;
-}
-.input[type=text] {
     width: 100%;
+}
+.input{
+    width: 100%;
+    min-height: 150px;
+    resize: none;
     background-color: #F3F3F3;
     box-sizing: border-box;
     border: 2px solid #F3F3F3;
     border-radius: 15px;
     font-size: 16px;
     background-image: url('/images/search-icon.png');
-    background-position: center left;
+    background-position: top 1rem left 0.4rem;
     background-repeat: no-repeat;
+    background-size: 20px;
     padding: 1rem;
     padding-left: 2em;
     margin: 1rem 0;
 }
-.display{
-    width: 322px;
-    height: 106px;
-    background: #F5F5F5;
-    border-radius: 16px;
-    margin: 1rem 0;
+.input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-family: 'DM Sans', sans-serif;
+    opacity: 1; /* Firefox */
+    color: grey;
+  }
+    
+.input:focus {
+    outline: none !important;
+    /* border:1px solid rgba(100, 100, 100, 0.496);
+    box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.96); */
+}
+.btnsContainer{
+    display: flex;
+    justify-content: space-between;
+    color: red;
 }
 .btn{
-    background: linear-gradient(180deg, #3C5B5E 0%, #547477 100%);
+    /* background: linear-gradient(180deg, #3C5B5E 0%, #547477 100%); */
+    background-color: #3C5B5E;
     color: white;
     border: none;
     border-radius: 15px;
     font-size: 16px;
     padding: 1rem;
 }
+.btn2{
+    background-color: #1470bb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 1rem;
+}
 .btn:hover{
     background: linear-gradient(180deg, #547477 0%, #3C5B5E 100%);
+    /* background-color: #416366; */
+}
+.btn2:hover{
+    /* background: linear-gradient(180deg, #2f7891 0%, #3d6774 100%); */
+    background-color: #1969a5;
+}
+.display{
+    width: 100%;
+    height: auto;
+    background: #F5F5F5;
+    border-radius: 16px;
+    margin: 1rem 0;
+    padding: 1.5rem;
+}
+.response{
+    color: grey;
+    /* font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.01em; */
 }

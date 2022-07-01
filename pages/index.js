@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <Playground />
-      <Reddit />
+      {/* <Reddit /> */}
     </div>
   );
 }

@@ -10,10 +10,11 @@ const Navbar = () => {
       />
       <div className={styles.container}>
         <h1 className={styles.logo}>
-          OpenAI <br />
+          Code
+          <br />
           Inspector
         </h1>
-        <a className={styles.description}>Quick view to OpenAI</a>
+        <a className={styles.description}>Code explained using OpenAI</a>
       </div>
       <div className={styles.animatedIcon}>
         <FiAlignCenter />
