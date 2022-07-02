@@ -8,11 +8,11 @@ const Navbar = () => {
   function fadeOut() {}
   return (
     <nav className={styles.navbar}>
-      <img
+      {/* <img
         src={"./images/Pattern.png"}
         alt="universe"
         className={styles.background}
-      />
+      /> */}
       <div className={styles.container}>
         <h1 className={styles.logo}>
           Code
