@@ -2,15 +2,16 @@
 
 .navbar{
     width: 100%;
-    height: 364px;
-    /* color: white; */
-    /* background-image: url("/images/Pattern.png");
-    background-repeat: no-repeat;
-    background-size: cover; */
+    height: 376px;
     display: grid;
-    grid-template-columns: 10% 80% 10%;
-    grid-template-rows: 25% 75%;
-    /* place-content: center; */
+    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 15% 85%;
+    position: relative;
+    color: white;
+    background-image: url("/images/Gradient1.png"),url("/images/Pattern1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 60%, cover;
+    background-position: bottom, top;
 }
 .background{
     width: 100%;
@@ -18,13 +19,49 @@
     grid-column: span 3;
     position: absolute;
     z-index: -1;
+    display: none;
     
 }
 .animatedIcon{
     color: whitesmoke;
-    padding: 0.5rem;
     grid-column-start: 3;
-    font-size: 1.5rem;
+    overflow: visible;
+    justify-self: flex-end;
+    padding-right: 0.5rem;
+    /* border: 2px solid blue; */
+}
+.dropdownMenuHidden{
+    visibility: hidden;
+    animation: 300ms animationMenuOut ease-out;
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+    grid-column-start: 3;
+    grid-row-start: 2;
+    justify-self: flex-end;
+    position: absolute;
+}
+.dropdownMenu{
+    animation: 300ms animationMenu ease-in;
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+    grid-column-start: 3;
+    grid-row-start: 2;
+    justify-self: flex-end;
+    position: absolute;
+    /* border: 2px solid orange; */
+}
+.menuOptions{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 21px;
+    letter-spacing: 1px;
+    color: white;
+    text-align: right;
+    padding-bottom: 0.3rem;
 }
 .container{
     text-align: center;
@@ -41,13 +78,47 @@
     letter-spacing: 0.5px;
     color: white;
     text-shadow: 0px 1px 14px rgba(0, 0, 0, 0.68);
-    font-size: 38px;
+    padding-top: 2rem;
 }
 .description{
     color: black;
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 17px;
     letter-spacing: 1px;
 }
+@keyframes animationMenu {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes animationMenuOut {
+    0% {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+@media (min-width: 768px) { 
+    .navbar{
+        background-image: url("/images/Gradient2.png"),url("/images/Pattern4.png");
+        background-repeat: no-repeat;
+        background-size: 100% 60%, cover;
+        background-position: bottom, center;
+    }  
+ }
