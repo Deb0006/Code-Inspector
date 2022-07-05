@@ -20,11 +20,10 @@
     overflow: visible;
     justify-self: flex-end;
     padding-right: 0.5rem;
-    /* border: 2px solid blue; */
 }
 .dropdownMenuHidden{
-    visibility: hidden;
     animation: 300ms animationMenuOut ease-out;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     padding-right: 1rem;
@@ -49,11 +48,11 @@
     font-style: normal;
     font-weight: 700;
     font-size: 0.95rem;
-    line-height: 21px;
+    /* line-height: 21px; */
     letter-spacing: 1px;
     color: white;
     text-align: right;
-    padding-bottom: 0.3rem;
+    /* padding-bottom: 0.3rem; */
 }
 .container{
     text-align: center;
@@ -100,7 +99,7 @@
         transform: translateY(0);
     }
     100% {
-        display: none;
+        /* display: none; */
         visibility: hidden;
         opacity: 0;
         transform: translateY(-5px);

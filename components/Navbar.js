@@ -1,18 +1,13 @@
 import styles from "../styles/Navbar.module.css";
 import { useRef, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
-// import { FiAlignCenter, FiX } from "react-icons/fi";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  function fadeOut() {}
+  // function fadeOut() {}
   return (
     <nav className={styles.navbar}>
-      {/* <img
-        src={"./images/Pattern.png"}
-        alt="universe"
-        className={styles.background}
-      /> */}
       <div className={styles.container}>
         <h1 className={styles.logo}>
           Code
@@ -31,8 +26,12 @@ const Navbar = () => {
         />
       </div>
       <div className={isOpen ? styles.dropdownMenu : styles.dropdownMenuHidden}>
-        <a className={styles.menuOptions}>Examples</a>
-        <a className={styles.menuOptions}>About</a>
+        <Link href="/examples">
+          <span className={styles.menuOptions}>Examples</span>
+        </Link>
+        <Link href="/about">
+          <span className={styles.menuOptions}>About</span>
+        </Link>
       </div>
     </nav>
   );
