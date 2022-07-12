@@ -1,5 +1,5 @@
-import styles from "../styles/Navbar.module.css";
-import { useRef, useState } from "react";
+import styles from ".//Navbar.module.css";
+import { useEffect, useRef, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 

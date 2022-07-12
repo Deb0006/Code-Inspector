@@ -11,19 +11,20 @@
     font-style: normal;
     font-weight: 700;
     font-size: 31px;
+    margin-top: 0;
 }
 .form{
     width: 100%;
 }
 .input{
     width: 100%;
-    min-height: 150px;
+    min-height: 200px;
     resize: none;
     background-color: #F3F3F3;
     box-sizing: border-box;
     border: 2px solid #F3F3F3;
     border-radius: 15px;
-    font-size: 16px;
+    font-size: 1rem;
     background-image: url('/images/search-icon.png');
     background-position: top 1rem left 0.4rem;
     background-repeat: no-repeat;
@@ -78,7 +79,7 @@
     padding: 1.5rem;
 }
 .response{
-    color: grey;
+    color: black;
     /* font-weight: 500;
     font-size: 12px;
     line-height: 16px;

@@ -1,37 +1,50 @@
-import styles from "../styles/Playground.module.css";
+import styles from ".//Playground.module.css";
 import { useRef, useState } from "react";
 
 const Playground = () => {
   const input = useRef();
+  const [output, setoutput] = useState("");
   const example = {
-    exp: "function uniteUnique(arr1, arr2, arr3) {\nconst finalArray = [];\nfor (let i = 0; i < arguments.length; i++){\nconst arrayArguments = arguments[i];\nfor (let j = 0; j < arrayArguments.length; j++) {\nlet indexValue = arrayArguments[j];\nif (finalArray.indexOf(indexValue) < 0) {\nfinalArray.push(indexValue);     \n}  \n}\n}\nreturn finalArray;\n}",
+    exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
-      "takes in arguments in the form of arrays loops through each array loops through each item in the array if the item doesn't exist in the final array, add it return the final array",
+      "The previous code is written in JavaScript. It takes in an array and an array of values to remove from the original array. It then loops through the original array and checks if each element is in the array of values to remove. If it is not, it adds it to the filtered array. Finally, it returns the filtered array.",
   };
 
-  let codeDescription = "";
   function submitHandler(event) {
     event.preventDefault();
     const enteredInput = input.current.value; //code input by user
-    // displayCode();
-    enteredInput === example.exp
-      ? (codeDescription = example.response)
-      : (codeDescription = "props with response from OPENAI");
-    codeDescription =
-      enteredInput === example.exp
-        ? example.response
-        : "props with response from OPENAI";
-    console.log("input:", codeDescription);
+    console.log(enteredInput);
+    generateDescription(enteredInput);
+  }
+
+  async function generateDescription(entered) {
+    console.log(entered);
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ code: entered }),
+    });
+
+    const data = await response.json();
+    console.log(data.result);
+    setoutput(data.result);
+    // setAnimalInput("");
+
+    // setoutput((prev) => {
+    //   return (output =
+    //     enteredInput === example.exp
+    //       ? example.response
+    //       : data.result);
+    // })
   }
 
   function onClick() {
     console.log("button2 clicked!");
     input.current.value = example.exp;
-    // console.log(example.exp);
   }
-  const variable = "hola";
-  // const codeDescription = "something";
-  function displayCode() {}
+
   return (
     <section className={styles.playground}>
       <h2 className={styles.title}>
@@ -43,10 +56,11 @@ const Playground = () => {
           <textarea
             type="text"
             id="input"
+            name="input"
             ref={input}
             className={styles.input}
             placeholder={"Your code..."}
-            name="input"
+            spellcheck="false"
             required
           />
         </label>
@@ -57,11 +71,10 @@ const Playground = () => {
             Try an example
           </button>
         </div>
+        <h3>Result</h3>
         <div className={styles.display}>
           <a className={styles.response}>
-            <b>this code does the following:</b>
-            <br />
-            <span>{codeDescription}</span>
+            <span>{output}</span>
           </a>
         </div>
       </form>
