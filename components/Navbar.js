@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  // function fadeOut() {}
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
@@ -26,6 +26,9 @@ const Navbar = () => {
         />
       </div>
       <div className={isOpen ? styles.dropdownMenu : styles.dropdownMenuHidden}>
+        <Link href="/">
+          <span className={styles.menuOptions}>Inspector</span>
+        </Link>
         <Link href="/examples">
           <span className={styles.menuOptions}>Examples</span>
         </Link>

@@ -41,6 +41,7 @@
     grid-row-start: 2;
     justify-self: flex-end;
     position: absolute;
+    
     /* border: 2px solid orange; */
 }
 .menuOptions{
