@@ -1,0 +1,30 @@
+.container{
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 50px rgba(90, 108, 234, 0.07);
+    border-radius: 22px;
+    padding: 14px 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    border: 2px solid lightblue;
+    max-width: 763px;
+    min-height: 220px;
+    gap: 20px;
+}
+.left{
+    border: 2px solid mediumpurple;
+    border-radius: 10px;
+    width: 45%;
+    height: auto;
+    overflow-x: auto;
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    
+}
+.right{
+    width: 40%;
+    height: auto;
+}

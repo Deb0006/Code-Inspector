@@ -14,23 +14,27 @@ const Navbar = () => {
           <br />
           Inspector
         </h1>
-        <h2 className={styles.description}>Code explained with OpenAI</h2>
+        <h2 className={styles.description}>AI-powered website</h2>
       </div>
       <div className={styles.animatedIcon}>
-        <Hamburger
-          className={styles.hamburger}
-          toggled={isOpen}
-          toggle={setOpen}
-          size={25}
-          label="Show menu"
-        />
+        <label htmlFor="hamburguer" aria-label="Open or close other options">
+          <Hamburger
+            className={styles.hamburger}
+            id="hamburguer"
+            toggled={isOpen}
+            toggle={setOpen}
+            size={26}
+            label="Show menu"
+            rounded
+          />
+        </label>
       </div>
       <div className={isOpen ? styles.dropdownMenu : styles.dropdownMenuHidden}>
         <Link href="/">
           <span className={styles.menuOptions}>Inspector</span>
         </Link>
-        <Link href="/examples">
-          <span className={styles.menuOptions}>Examples</span>
+        <Link href="/results">
+          <span className={styles.menuOptions}>Results</span>
         </Link>
         <Link href="/about">
           <span className={styles.menuOptions}>About</span>

@@ -18,7 +18,7 @@ const Playground = () => {
     response:
       "The previous code is written in JavaScript. It takes in an array and an array of values to remove from the original array. It then loops through the original array and checks if each element is in the array of values to remove. If it is not, it adds it to the filtered array. Finally, it returns the filtered array.",
   };
-
+  // console.log(codeInput);
   function submitHandler(event) {
     event.preventDefault();
     const enteredInput = codeInput; //code input by user (input.current.value)
@@ -36,7 +36,7 @@ const Playground = () => {
     });
 
     const data = await response.json();
-    console.log(data.result);
+    // console.log(data.result);
     setoutput(data.result);
   }
 
@@ -56,7 +56,7 @@ const Playground = () => {
 
         <form className={styles.form} onSubmit={submitHandler}>
           <label>
-            Type code here to generate an explanation:
+            Type code here to generate a description:
             <div className={styles.codeContainer}>
               <pre id="editor" className={[styles.editor]}>
                 <code className={"language-javascript"} id="editor-code">
