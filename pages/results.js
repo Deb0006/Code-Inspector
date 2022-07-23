@@ -1,23 +1,38 @@
 import data from "./codedata.js";
 import Examples from "../components/Examples";
+import { useState, useEffect } from "react";
+import { db } from "./api/firebase-config.js";
+import { collection, getDocs, addDocs, doc } from "firebase/firestore";
+
 const Results = () => {
-  // console.log(data.data.code[1].code);
+  const [examples, setExamples] = useState([]);
+  const examplesCollectionRef = collection(db, "examples");
   const cards = data.map((item) => {
     return <Examples key={item.id} code={item.code} result={item.result} />;
   });
+
+  useEffect(() => {
+    const getExamples = async () => {
+      const data = await getDocs(examplesCollectionRef);
+      setExamples(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getExamples();
+    // console.log("*", examples);
+  }, []);
+  const datafromserver = examples.map((item) => {
+    return (
+      <div>
+        <h1>result: {item.result}</h1>
+      </div>
+    );
+  });
   return (
     <>
-      <div className="wrapper">
-        <h1>Examples</h1>
-        <p>These code descriptions were generated in this website:</p>
-        {cards}
-        <style jsx>{`
-          .wrapper {
-            dislplay: flex;
-            justify-content: center;
-          }
-        `}</style>
-      </div>
+      <h1>Examples</h1>
+      <p>These code descriptions were generated in this website:</p>
+      {cards}
+      {datafromserver}
     </>
   );
 };

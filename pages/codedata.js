@@ -10,4 +10,10 @@ export default [
     code: 'def printme( str ):\n "This prints a passed string into this function"\n    print str\n    return;\n printme("Im first call to user defined function!")',
     result: "This code is defining a function.",
   },
+  {
+    id: "87741520",
+    code: 'x = 1while True:    print("To infinity and beyond! Were getting close, on %d now!" % (x))    x += 1',
+    result:
+      "This code is an infinite loop that prints out a message and increments the",
+  },
 ];

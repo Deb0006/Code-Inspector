@@ -1,4 +1,5 @@
 import styles from ".//Examples.module.css";
+import { useState, useEffect } from "react";
 
 function Examples(props) {
   return (
@@ -20,8 +21,8 @@ function Examples(props) {
           `}</style>
         </div>
         <div className={styles.right}>
-          <h2>Results:</h2>
-          <p>{props.result}</p>
+          <h2 className={styles.title}>Results:</h2>
+          <p className={styles.response}>{props.result}</p>
         </div>
       </div>
     </>

@@ -1,131 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Viga&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Viga&display=swap");
 
-.navbar{
-    width: 100%;
-    height: 376px;
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 15% 85%;
-    position: relative;
-    color: white;
-    background-image: url("/images/Gradient2.png"),url("/images/Pattern2.png");
-    background-repeat: no-repeat;
-    background-size: 100% 50%, cover;
-    background-position: bottom, top;
-}
-
-.animatedIcon{
-    color: white;
-    grid-column-start: 3;
-    overflow: visible;
-    justify-self: end;
-    align-self: center;
-    width: 30px;
-    height: 30px;
-    padding: 0 3rem 2.9rem 0rem;
-  
-    margin-right: 25%;
-    
-    background-color: #ffa9a941;
-    border-radius: 8px;
+.navbar {
+  width: 100%;
+  height: 376px;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 20% 80%;
+  position: relative;
+  color: white;
+  background-image: url("/images/Gradient2.png"), url("/images/Pattern2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 50%, cover;
+  background-position: bottom, top;
 }
 
+.animatedIcon {
+  color: white;
+  grid-column-start: 3;
+  overflow: visible;
+  justify-self: end;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  padding: 0 3rem 2.9rem 0rem;
 
-.dropdownMenuHidden{
-    animation: 300ms animationMenuOut ease-out;
-    visibility: hidden;
-    display: flex;
-    padding-right: 20%;
-    padding-top: 1rem;
-    flex-direction: column;
-    grid-column-start: 3;
-    grid-row-start: 2;
-    justify-self: flex-end;
-    position: absolute;
+  margin-right: 25%;
+
+  background-color: #ffa9a941;
+  border-radius: 8px;
 }
-.dropdownMenu{
-    animation: 300ms animationMenu ease-in;
-    display: flex;
-    flex-direction: column;
-    padding-right: 20%;
-    padding-top: 1rem;
-    grid-column-start: 3;
-    grid-row-start: 2;
-    justify-self: flex-end;
-    position: absolute;
-    cursor: pointer;
-    
-    /* border: 2px solid orange; */
+
+.dropdownMenuHidden {
+  animation: 300ms animationMenuOut ease-out;
+  visibility: hidden;
+  display: flex;
+  padding-right: 25%;
+  padding-top: 1rem;
+  flex-direction: column;
+  grid-column-start: 3;
+  grid-row-start: 2;
+  justify-self: flex-end;
+  position: absolute;
 }
-.menuOptions{
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
-    letter-spacing: 1px;
-    color: white;
-    text-align: right;
-    /* padding-bottom: 0.3rem; */
+.dropdownMenu {
+  animation: 300ms animationMenu ease-in;
+  display: flex;
+  flex-direction: column;
+  padding-right: 25%;
+  padding-top: 1rem;
+  grid-column-start: 3;
+  grid-row-start: 2;
+  justify-self: flex-end;
+  position: absolute;
+  cursor: pointer;
+
+  /* border: 2px solid orange; */
 }
-.container{
-    text-align: center;
-    grid-column-start: 2;
-    grid-row-start: 2;
+.menuOptions {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.8rem;
+  letter-spacing: 1px;
+  color: white;
+  text-align: right;
+  /* padding-bottom: 0.3rem; */
 }
-.logo{
-    font-family: 'Viga';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 43px;
-    text-align: center;
-    letter-spacing: 0.5px;
-    color: white;
-    text-shadow: 0px 1px 14px rgba(0, 0, 0, 0.68);
-    padding-top: 2rem;
+.container {
+  text-align: center;
+  grid-column-start: 2;
+  grid-row-start: 2;
 }
-.description{
-    color: black;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 17px;
-    letter-spacing: 1px;
+.logo {
+  font-family: "Viga";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 43px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0px 1px 14px rgba(0, 0, 0, 0.68);
+  padding-top: 1rem;
+}
+.description {
+  color: black;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 1px;
 }
 @keyframes animationMenu {
-    0% {
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-    100% {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes animationMenuOut {
-    0% {
-        display: flex;
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        /* display: none; */
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-5px);
-    }
+  0% {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-5px);
+  }
 }
 
-@media (min-width: 768px) { 
-    .navbar{
-        background-image: url("/images/Gradient1.png"),url("/images/Pattern1.png");
-        background-repeat: no-repeat;
-        background-size: 100% 50%, cover;
-        background-position: bottom, center;
-        padding: 0%;
-    }  
- }
+@media (min-width: 768px) {
+  .navbar {
+    background-image: url("/images/Gradient1.png"), url("/images/Pattern1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 50%, cover;
+    background-position: bottom, center;
+    padding: 0%;
+  }
+}
