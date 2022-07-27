@@ -16,13 +16,11 @@ export default async function (req, res) {
 }
 
 function generatePrompt(code) {
-  //   const capitalizedAnimal =
-  //     code[0].toUpperCase() + code.slice(1).toLowerCase();
   return `
   teacher:
   ${code}
   
-student: what is this code doing? (if it isn't a code type 'This isn't code')
+  student: what is this code doing? (if it isn't a code type 'This isn't code')
 
-teacher:`;
+  teacher:`;
 }

@@ -2,7 +2,7 @@ import styles from ".//Playground.module.css";
 import Prism from "prismjs";
 import { useState, useEffect } from "react";
 import { db } from "../pages/api/firebase-config";
-import { collection, addDocs, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { async } from "@firebase/util";
 
 const Playground = () => {
@@ -35,10 +35,17 @@ const Playground = () => {
     const data = await response.json();
     setoutput(data.result);
 
-    createResult(enteredCode, data.result);
+    console.log(output);
+    if (output != "This isn't code") {
+      createResult(enteredCode, data.result);
+    }
   }
   async function createResult(enteredCode, response) {
-    await addDoc(resultsCollectionRef, { code: enteredCode, result: response });
+    await addDoc(resultsCollectionRef, {
+      code: enteredCode,
+      result: response,
+      timestamp: serverTimestamp(),
+    });
   }
   //createdaT: serverTimestamp()
 
