@@ -1,12 +1,9 @@
-/* .playground {
-  
-} */
+
 .title {
-  color: black;
+  /* color: black;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 700; */
   font-size: 26px;
-  /* margin-top: 1rem; */
 }
 .form {
   width: 100%;
@@ -55,10 +52,6 @@
 .response {
   line-height: 25px;
   color: black;
-  /* font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.01em; */
 }
 
 .codeContainer {
@@ -110,36 +103,3 @@
     font-size: 31px;
   }
 }
-/* .input{
-    width: 100%;
-    min-height: 200px;
-    resize: none;
-    box-sizing: border-box;
-    border: 2px solid #F3F3F3;
-    background-color: #F3F3F3;
-    border-radius: 15px;
-    font-size: 1rem;
-    background-image: url('/images/search-icon.png');
-    background-position: top 1rem left 0.4rem;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    padding: 1rem;
-    padding-left: 2em;
-    margin: 1rem 0;
-} */
-/* .input:focus {
-    outline: none !important;
-} */
-/* .input::placeholder { 
-    font-family: 'DM Sans', sans-serif;
-    opacity: 1;  
-    color: grey;
-  } */
-
-/* overflow-x: auto;
-white-space: pre-wrap;
-white-space: -moz-pre-wrap !important;
-white-space: -pre-wrap;
-white-space: -o-pre-wrap;
-word-wrap: break-word;
-word-wrap: break-word !important; */

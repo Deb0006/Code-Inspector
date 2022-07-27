@@ -3,11 +3,12 @@ import Examples from "../components/Examples";
 import { useState, useEffect } from "react";
 import { db } from "./api/firebase-config.js";
 import { collection, getDocs, addDocs, doc } from "firebase/firestore";
+import styles from "../styles/Results.module.css";
 
 const Results = () => {
   const [examples, setExamples] = useState([]);
   const examplesCollectionRef = collection(db, "examples");
-  const cards = data.map((item) => {
+  const datafromserver = examples.map((item) => {
     return <Examples key={item.id} code={item.code} result={item.result} />;
   });
 
@@ -18,20 +19,14 @@ const Results = () => {
     };
 
     getExamples();
-    // console.log("*", examples);
   }, []);
-  const datafromserver = examples.map((item) => {
-    return (
-      <div>
-        <h1>result: {item.result}</h1>
-      </div>
-    );
-  });
+
   return (
     <>
-      <h1>Examples</h1>
-      <p>These code descriptions were generated in this website:</p>
-      {cards}
+      <h1 className={styles.title}>Examples</h1>
+      <p className={styles.description}>
+        These code descriptions were generated in this website:
+      </p>
       {datafromserver}
     </>
   );

@@ -23,7 +23,6 @@ const Playground = () => {
     event.preventDefault();
     const enteredInput = codeInput;
     generateDescription(enteredInput);
-    createResult(enteredInput, output);
   }
   async function generateDescription(enteredCode) {
     const response = await fetch("/api/generate", {
@@ -35,11 +34,13 @@ const Playground = () => {
     });
     const data = await response.json();
     setoutput(data.result);
-    return data.result;
+
+    createResult(enteredCode, data.result);
   }
   async function createResult(enteredCode, response) {
     await addDoc(resultsCollectionRef, { code: enteredCode, result: response });
   }
+  //createdaT: serverTimestamp()
 
   function onClick() {
     setInput(() => example.exp);
