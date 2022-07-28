@@ -7,17 +7,18 @@ import styles from "../styles/Results.module.css";
 
 const Results = () => {
   const [examples, setExamples] = useState([]);
-  const examplesCollectionRef = collection(db, "examples");
+
   const datafromserver = examples.map((item) => {
     return <Examples key={item.id} code={item.code} result={item.result} />;
   });
 
   useEffect(() => {
-    const getExamples = async () => {
-      const data = await getDocs(examplesCollectionRef);
-      setExamples(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-
+    async function getExamples() {
+      const response = await fetch("/api/firebase-config");
+      const data = await response.json();
+      setExamples(data);
+      // setExamples(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    }
     getExamples();
   }, []);
 

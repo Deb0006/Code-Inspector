@@ -1,14 +1,14 @@
 import styles from ".//Playground.module.css";
 import Prism from "prismjs";
 import { useState, useEffect } from "react";
-import { db } from "../pages/api/firebase-config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { async } from "@firebase/util";
+// import { db } from "../pages/api/firebase-config";
+// import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+// import { async } from "@firebase/util";
 
 const Playground = () => {
   const [output, setoutput] = useState("");
   const [codeInput, setInput] = useState("");
-  const resultsCollectionRef = collection(db, "examples");
+  // const resultsCollectionRef = collection(db, "examples");
   const example = {
     exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
@@ -24,6 +24,7 @@ const Playground = () => {
     const enteredInput = codeInput;
     generateDescription(enteredInput);
   }
+
   async function generateDescription(enteredCode) {
     const response = await fetch("/api/generate", {
       method: "POST",
@@ -35,18 +36,20 @@ const Playground = () => {
     const data = await response.json();
     setoutput(data.result);
 
-    console.log(output);
-    if (output != "This isn't code") {
-      createResult(enteredCode, data.result);
-    }
+    createResult(enteredCode, data.result);
   }
-  async function createResult(enteredCode, response) {
-    await addDoc(resultsCollectionRef, {
-      code: enteredCode,
-      result: response,
-      timestamp: serverTimestamp(),
+  async function createResult(enteredCode, res) {
+    console.log(JSON.stringify({ code: enteredCode, result: res }));
+    const response = await fetch("/api/firebase-config", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ code: enteredCode, result: res }),
     });
+    console.log(response);
   }
+
   //createdaT: serverTimestamp()
 
   function onClick() {
