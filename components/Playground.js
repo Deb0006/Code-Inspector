@@ -1,14 +1,10 @@
 import styles from ".//Playground.module.css";
 import Prism from "prismjs";
 import { useState, useEffect } from "react";
-// import { db } from "../pages/api/firebase-config";
-// import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-// import { async } from "@firebase/util";
 
 const Playground = () => {
   const [output, setoutput] = useState("");
   const [codeInput, setInput] = useState("");
-  // const resultsCollectionRef = collection(db, "examples");
   const example = {
     exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
@@ -22,6 +18,7 @@ const Playground = () => {
   function submitHandler(event) {
     event.preventDefault();
     const enteredInput = codeInput;
+
     generateDescription(enteredInput);
   }
 
@@ -39,7 +36,6 @@ const Playground = () => {
     createResult(enteredCode, data.result);
   }
   async function createResult(enteredCode, res) {
-    console.log(JSON.stringify({ code: enteredCode, result: res }));
     const response = await fetch("/api/firebase-config", {
       method: "POST",
       headers: {
@@ -47,16 +43,10 @@ const Playground = () => {
       },
       body: JSON.stringify({ code: enteredCode, result: res }),
     });
-    console.log(response);
   }
-
-  //createdaT: serverTimestamp()
 
   function onClick() {
     setInput(() => example.exp);
-  }
-  function handleChange(event) {
-    setInput(() => (event.target.name = event.target.value));
   }
 
   return (
@@ -78,7 +68,7 @@ const Playground = () => {
                 className={styles.editorContent}
                 name="codeInput"
                 value={codeInput}
-                onChange={handleChange}
+                onChange={(e) => setInput(e.target.value)}
                 placeholder={"//... your code"}
                 spellCheck="false"
                 maxLength="500"

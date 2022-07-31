@@ -2,6 +2,10 @@ import styles from ".//Examples.module.css";
 import { useState, useEffect } from "react";
 
 function Examples(props) {
+  const createdAt = props.timestamp;
+  var date = new Date(createdAt.seconds * 1000).toLocaleDateString("en-US");
+
+  // console.log(date);
   return (
     <>
       <div className={styles.container}>
@@ -23,6 +27,7 @@ function Examples(props) {
         <div className={styles.right}>
           <h2 className={styles.title}>Results:</h2>
           <p className={styles.response}>{props.result}</p>
+          <p>{date}</p>
         </div>
       </div>
     </>

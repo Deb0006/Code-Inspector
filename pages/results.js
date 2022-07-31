@@ -1,4 +1,3 @@
-import data from "./codedata.js";
 import Examples from "../components/Examples";
 import { useState, useEffect } from "react";
 import { db } from "./api/firebase-config.js";
@@ -9,7 +8,14 @@ const Results = () => {
   const [examples, setExamples] = useState([]);
 
   const datafromserver = examples.map((item) => {
-    return <Examples key={item.id} code={item.code} result={item.result} />;
+    return (
+      <Examples
+        key={item.id}
+        code={item.code}
+        result={item.result}
+        timestamp={item.timestamp}
+      />
+    );
   });
 
   useEffect(() => {
@@ -17,8 +23,9 @@ const Results = () => {
       const response = await fetch("/api/firebase-config");
       const data = await response.json();
       setExamples(data);
-      // setExamples(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log("hi");
     }
+    console.log("again");
     getExamples();
   }, []);
 

@@ -6,7 +6,6 @@ import {
   getDocs,
   serverTimestamp,
 } from "firebase/firestore";
-// import { db } from "../pages/api/firebase-config";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
@@ -22,22 +21,20 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 const resultsCollectionRef = collection(db, "examples");
-const examplesCollectionRef = collection(db, "examples");
+
 export default async function (req, res) {
   if (req.method === "GET") {
-    const getExamples = async () => {
-      const data = await getDocs(examplesCollectionRef);
-      const response = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      res.status(200).json(response);
-    };
-    getExamples();
+    const data = await getDocs(resultsCollectionRef);
+    const response = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    res.status(200).json(response);
   } else if (req.method === "POST") {
     const input = req.body.code;
     const result = req.body.result;
-    const x = await addDoc(resultsCollectionRef, {
+    await addDoc(resultsCollectionRef, {
       code: input,
       result: result,
+      timestamp: serverTimestamp(),
     });
-    res.status(201).json(x);
+    res.status(201).json(input);
   }
 }
