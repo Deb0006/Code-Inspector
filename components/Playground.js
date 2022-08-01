@@ -48,7 +48,7 @@ const Playground = () => {
       body: JSON.stringify({ code: enteredCode, result: res }),
     });
   }
-
+  //check dates
   async function checkTimestamps() {
     const response = await fetch("/api/firebase-config");
     const data = await response.json();
