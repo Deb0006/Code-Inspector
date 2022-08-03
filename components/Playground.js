@@ -5,8 +5,6 @@ import styles from ".//Playground.module.css";
 const Playground = () => {
   const [output, setOutput] = useState("");
   const [codeInput, setInput] = useState("");
-  const [timestampMax, setTimestampMax] = useState(true);
-  const [buttonState, setButtonState] = useState(1);
   const example = {
     exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
@@ -19,10 +17,8 @@ const Playground = () => {
 
   function submitHandler(event) {
     event.preventDefault();
-    setButtonState((prevCount) => prevCount + 1);
     const enteredInput = codeInput;
-    console.log(timestampMax);
-    timestampMax ? generateDescription(enteredInput) : null;
+    generateDescription(enteredInput);
   }
 
   async function generateDescription(enteredCode) {
@@ -35,37 +31,7 @@ const Playground = () => {
     });
     const data = await response.json();
     setOutput(data.result);
-
-    createResult(enteredCode, data.result);
   }
-
-  async function createResult(enteredCode, res) {
-    const response = await fetch("/api/firebase-config", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ code: enteredCode, result: res }),
-    });
-  }
-  //check dates
-  async function checkTimestamps() {
-    const response = await fetch("/api/firebase-config");
-    const data = await response.json();
-    let today = new Date().toLocaleDateString();
-    const datesChecked = [];
-    for (let d = 0; d < data.length; d++) {
-      const time = data[d].timestamp;
-      var date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
-      date == today ? datesChecked.push(date) : null;
-    }
-    console.log(datesChecked.length);
-    datesChecked.length > 20 ? setTimestampMax(false) : null;
-  }
-  useEffect(() => {
-    checkTimestamps();
-    console.log("this ran");
-  }, [buttonState]);
 
   function onClick() {
     setInput(() => example.exp);

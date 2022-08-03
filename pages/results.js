@@ -1,7 +1,5 @@
 import Examples from "../components/Examples";
 import { useState, useEffect } from "react";
-import { db } from "./api/firebase-config.js";
-import { collection, getDocs, addDocs, doc } from "firebase/firestore";
 import styles from "../styles/Results.module.css";
 
 const Results = () => {

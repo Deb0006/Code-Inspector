@@ -27,14 +27,17 @@ export default async function (req, res) {
     const data = await getDocs(resultsCollectionRef);
     const response = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     res.status(200).json(response);
-  } else if (req.method === "POST") {
-    const input = req.body.code;
-    const result = req.body.result;
-    await addDoc(resultsCollectionRef, {
-      code: input,
-      result: result,
-      timestamp: serverTimestamp(),
-    });
-    res.status(201).json(input);
   }
+}
+export async function createFirebaseData(input, result) {
+  await addDoc(resultsCollectionRef, {
+    code: input,
+    result: result,
+    timestamp: serverTimestamp(),
+  });
+}
+export async function getFirebaseData(req, res) {
+  const data = await getDocs(resultsCollectionRef);
+  const response = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return response;
 }
