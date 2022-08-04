@@ -31,8 +31,8 @@
 }
 
 .dropdownMenuHidden {
-  animation: 300ms animationMenuOut ease-out;
   visibility: hidden;
+  animation: 300ms animationMenuOut ease-out;
   display: flex;
   padding-right: 25%;
   padding-top: 1rem;

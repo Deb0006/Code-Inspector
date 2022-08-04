@@ -57,7 +57,7 @@ const Playground = () => {
                 name="codeInput"
                 value={codeInput}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder={"//... your code"}
+                placeholder={"//..."}
                 spellCheck="false"
                 maxLength="500"
                 required
@@ -74,13 +74,7 @@ const Playground = () => {
         </div>
         <h3>Result</h3>
         <div className={styles.display}>
-          <a className={styles.response}>
-            <span>
-              {timestampMax
-                ? output
-                : "Max request limit exceeded, please try again later."}
-            </span>
-          </a>
+          <p className={styles.response}>{output}</p>
         </div>
       </form>
     </>

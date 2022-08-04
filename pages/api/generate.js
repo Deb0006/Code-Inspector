@@ -7,6 +7,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 let timestampMax = true;
+
 async function checkTimestamps() {
   const data = await getFirebaseData();
   let today = new Date().toLocaleDateString();
@@ -16,7 +17,7 @@ async function checkTimestamps() {
     var date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
     date == today ? datesChecked.push(date) : null;
   }
-  datesChecked.length > 10 ? (timestampMax = false) : null;
+  datesChecked.length > 15 ? (timestampMax = false) : null;
 }
 
 export default async function (req, res) {
@@ -27,21 +28,42 @@ export default async function (req, res) {
       prompt: generatePrompt(req.body.code),
       temperature: 0.7,
     });
-    createFirebaseData(req.body.code, completion.data.choices[0].text);
-    res.status(200).json({ result: completion.data.choices[0].text });
+    const response = completion.data.choices[0].text;
+    //content filter
+    const filterL = await contenFilter(response);
+
+    if (filterL == "0" || filterL == "1") {
+      createFirebaseData(req.body.code, response);
+      res.status(200).json({ result: response });
+    } else {
+      res.status(200).json({ text: "Try again, after modifying the prompt." });
+    }
   } else {
-    res
-      .status(200)
-      .json({ result: "Max requests exceeded. Please try again later." });
+    res.status(200).json({
+      result:
+        "We're sorry, but you have exceeded the maximum number of requests. Please try again later.",
+    });
   }
 }
-
+async function contenFilter(resp) {
+  const filterResponse = await openai
+    .createCompletion({
+      model: "content-filter-alpha",
+      prompt: `<|endoftext|>${resp}\n--\nLabel:`,
+      max_tokens: 1,
+      temperature: 0,
+      top_p: 0,
+      logprobs: 10,
+    })
+    .catch((error) => {});
+  return filterResponse.data["choices"][0]["text"];
+}
 function generatePrompt(code) {
   return `
   teacher:
   ${code}
   
-  student: what is this code doing? (if it isn't a code type 'This isn't code')
+  student: what is this code doing? (if this isn't code reply 'This isn't code')
 
   teacher:`;
 }
