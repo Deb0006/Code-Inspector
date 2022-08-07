@@ -22,7 +22,7 @@ export const db = getFirestore(app);
 
 const resultsCollectionRef = collection(db, "examples");
 
-export default async function (req, res) {
+export default async function firebaseGet(req, res) {
   if (req.method === "GET") {
     const data = await getDocs(resultsCollectionRef);
     const response = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));

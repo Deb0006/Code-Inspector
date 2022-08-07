@@ -21,9 +21,7 @@ const Results = () => {
       const response = await fetch("/api/firebase-config");
       const data = await response.json();
       setExamples(data);
-      console.log("hi");
     }
-    console.log("again");
     getExamples();
   }, []);
 

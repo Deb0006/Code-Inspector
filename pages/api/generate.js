@@ -10,17 +10,17 @@ let timestampMax = true;
 
 async function checkTimestamps() {
   const data = await getFirebaseData();
-  let today = new Date().toLocaleDateString();
+  const today = new Date().toLocaleDateString();
   const datesChecked = [];
   for (let d = 0; d < data.length; d++) {
     const time = data[d].timestamp;
-    var date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
-    date == today ? datesChecked.push(date) : null;
+    const date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
+    date === today ? datesChecked.push(date) : null;
   }
   datesChecked.length > 15 ? (timestampMax = false) : null;
 }
 
-export default async function (req, res) {
+export default async function openaiCreate(req, res) {
   await checkTimestamps();
   if (timestampMax === true) {
     const completion = await openai.createCompletion({
@@ -29,6 +29,7 @@ export default async function (req, res) {
       temperature: 0.7,
     });
     const response = completion.data.choices[0].text;
+    // const response = "this is a test";
     //content filter
     const filterL = await contenFilter(response);
 
@@ -36,7 +37,7 @@ export default async function (req, res) {
       createFirebaseData(req.body.code, response);
       res.status(200).json({ result: response });
     } else {
-      res.status(200).json({ text: "Try again, after modifying the prompt." });
+      res.status(200).json({ text: "Try again, after modifying the input." });
     }
   } else {
     res.status(200).json({
@@ -58,6 +59,7 @@ async function contenFilter(resp) {
     .catch((error) => {});
   return filterResponse.data["choices"][0]["text"];
 }
+
 function generatePrompt(code) {
   return `
   teacher:
