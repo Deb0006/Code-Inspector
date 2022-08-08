@@ -1,6 +1,6 @@
 import Prism from "prismjs";
 import { useEffect, useState } from "react";
-import styles from ".//Playground.module.css";
+import styles from "./Playground.module.css";
 
 const Playground = () => {
   const [output, setOutput] = useState("");
@@ -13,7 +13,7 @@ const Playground = () => {
 
   useEffect(() => {
     Prism.highlightAll();
-  }, [codeInput, submitHandler]);
+  }, [codeInput]);
 
   function submitHandler(event) {
     event.preventDefault();
@@ -47,7 +47,7 @@ const Playground = () => {
         <label>
           Type code here to generate a description:
           <div className={styles.codeContainer}>
-            <pre id="editor" className={[styles.editor]}>
+            <pre id="editor" className={styles.editor}>
               <code className={"language-javascript"} id="editor-code">
                 {codeInput}
               </code>
