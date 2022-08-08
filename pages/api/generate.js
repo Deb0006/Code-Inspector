@@ -34,7 +34,9 @@ export default async function openaiCreate(req, res) {
     const filterL = await contenFilter(response);
 
     if (filterL == "0" || filterL == "1") {
-      createFirebaseData(req.body.code, response);
+      response === "this isn't code"
+        ? null
+        : createFirebaseData(req.body.code, response);
       res.status(200).json({ result: response });
     } else {
       res.status(200).json({ text: "Try again, after modifying the input." });

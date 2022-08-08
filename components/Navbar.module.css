@@ -8,7 +8,7 @@
   grid-template-rows: 20% 80%;
   position: relative;
   color: white;
-  background-image: url("/images/Gradient2.png"), url("/images/Pattern2.png");
+  background-image: url("/images/Gradient2.png"), url("/images/Pattern2.webp");
   background-repeat: no-repeat;
   background-size: 100% 50%, cover;
   background-position: bottom, top;
@@ -57,7 +57,6 @@
   /* border: 2px solid orange; */
 }
 .menuOptions {
-  font-family: "DM Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 0.875rem;
@@ -121,7 +120,7 @@
 
 @media (min-width: 768px) {
   .navbar {
-    background-image: url("/images/Gradient1.png"), url("/images/Pattern1.png");
+    background-image: url("/images/Gradient1.png"), url("/images/Pattern1.webp");
     background-repeat: no-repeat;
     background-size: 100% 50%, cover;
     background-position: bottom, center;
