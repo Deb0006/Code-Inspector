@@ -7,6 +7,7 @@ const Playground = () => {
   const [output, setOutput] = useState("");
   const [codeInput, setInput] = useState("");
   const [initialClass, setInitialClass] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const example = {
     exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
@@ -19,13 +20,17 @@ const Playground = () => {
   useEffect(() => {
     setInitialClass("language-jsx");
   }, []);
+
   function submitHandler(event) {
     event.preventDefault();
     const enteredInput = codeInput;
-    generateDescription(enteredInput);
+    isLoading === true
+      ? setOutput(() => "Loading")
+      : generateDescription(enteredInput);
   }
 
   async function generateDescription(enteredCode) {
+    setIsLoading(() => true);
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -34,6 +39,8 @@ const Playground = () => {
       body: JSON.stringify({ code: enteredCode }),
     });
     const data = await response.json();
+
+    setIsLoading(() => false);
     setOutput(data.result);
   }
 
@@ -71,7 +78,9 @@ const Playground = () => {
         </label>
 
         <div className={styles.btnsContainer}>
-          <button className={styles.btn}>Generate</button>
+          <button className={styles.btn} disabled={isLoading}>
+            Generate
+          </button>
           <button className={styles.btn2} onClick={onClick} type="button">
             Try an example
           </button>

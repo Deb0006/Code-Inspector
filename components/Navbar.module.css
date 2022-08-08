@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Viga&display=swap");
-
 .navbar {
   width: 100%;
   height: 376px;
@@ -72,11 +70,10 @@
   grid-row-start: 2;
 }
 .logo {
-  font-family: Helvetica, sans-serif;
-  /* font-family: "Viga"; */
+  /* font-family: Helvetica, sans-serif; */
+  font-family: "Viga";
   font-style: normal;
-  /* font-weight: 400; for Viga font*/
-  font-weight: bold;
+  font-weight: 400;
   font-size: 40px;
   line-height: 43px;
   text-align: center;

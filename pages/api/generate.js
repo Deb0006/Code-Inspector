@@ -34,7 +34,7 @@ export default async function openaiCreate(req, res) {
     const filterL = await contenFilter(response);
 
     if (filterL == "0" || filterL == "1") {
-      response === "this isn't code"
+      response === "This isn't code"
         ? null
         : createFirebaseData(req.body.code, response);
       res.status(200).json({ result: response });
