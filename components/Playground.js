@@ -40,8 +40,8 @@ const Playground = () => {
     });
     const data = await response.json();
 
-    setIsLoading(() => false);
     setOutput(data.result);
+    setIsLoading(() => false);
   }
 
   function onClick() {
@@ -78,7 +78,10 @@ const Playground = () => {
         </label>
 
         <div className={styles.btnsContainer}>
-          <button className={styles.btn} disabled={isLoading}>
+          <button
+            className={isLoading ? styles.btnLoading : styles.btn}
+            disabled={isLoading}
+          >
             Generate
           </button>
           <button className={styles.btn2} onClick={onClick} type="button">
