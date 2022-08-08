@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
-        <div className={styles.copywrite}>Created by Debby A.</div>
+        <p className={styles.copywrite}>Created by Debby A.</p>
       </div>
     </footer>
   );
