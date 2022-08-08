@@ -71,7 +71,6 @@
   height: 500px;
   min-height: 300px;
   margin: 0;
-  filter: saturate(1.5);
   box-sizing: border-box;
   scrollbar-width: none;
 }

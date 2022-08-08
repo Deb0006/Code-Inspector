@@ -1,10 +1,12 @@
 import Prism from "prismjs";
 import { useEffect, useState } from "react";
 import styles from "./Playground.module.css";
+import "prismjs/components/prism-jsx.min";
 
 const Playground = () => {
   const [output, setOutput] = useState("");
   const [codeInput, setInput] = useState("");
+  const [initialClass, setInitialClass] = useState("");
   const example = {
     exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
@@ -14,7 +16,9 @@ const Playground = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, [codeInput]);
-
+  useEffect(() => {
+    setInitialClass("language-jsx");
+  }, []);
   function submitHandler(event) {
     event.preventDefault();
     const enteredInput = codeInput;
@@ -48,7 +52,7 @@ const Playground = () => {
           Type code here to generate a description:
           <div className={styles.codeContainer}>
             <pre id="editor" className={styles.editor}>
-              <code className={"language-javascript"} id="editor-code">
+              <code className={initialClass} id="editor-code">
                 {codeInput}
               </code>
               <textarea

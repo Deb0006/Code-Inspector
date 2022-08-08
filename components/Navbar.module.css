@@ -72,9 +72,11 @@
   grid-row-start: 2;
 }
 .logo {
-  font-family: "Viga";
+  font-family: Helvetica, sans-serif;
+  /* font-family: "Viga"; */
   font-style: normal;
-  font-weight: 400;
+  /* font-weight: 400; for Viga font*/
+  font-weight: bold;
   font-size: 40px;
   line-height: 43px;
   text-align: center;
