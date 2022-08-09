@@ -17,6 +17,7 @@ async function checkTimestamps() {
     const date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
     date === today ? datesChecked.push(date) : null;
   }
+
   datesChecked.length > 15 ? (timestampMax = false) : null;
 }
 
@@ -27,16 +28,20 @@ export default async function openaiCreate(req, res) {
       model: "text-davinci-002",
       prompt: generatePrompt(req.body.code),
       temperature: 0.7,
+      max_tokens: 35,
     });
     const response = completion.data.choices[0].text;
+
     // const response = "this is a test";
     //content filter
     const filterL = await contenFilter(response);
 
     if (filterL == "0" || filterL == "1") {
-      response === "This isn't code" || "This isn't code."
-        ? null
-        : createFirebaseData(req.body.code, response);
+      if (response.includes("This isn't code")) {
+        null;
+      } else {
+        createFirebaseData(req.body.code, response);
+      }
       res.status(200).json({ result: response });
     } else {
       res.status(200).json({ text: "Try again, after modifying the input." });

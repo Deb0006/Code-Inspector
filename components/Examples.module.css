@@ -9,13 +9,14 @@
   flex-direction: column;
   padding: 1rem 5%;
   min-width: 100%;
+  width: 100%;
   /* flex-wrap: wrap;
   flex-direction: row;
   justify-content: center; */
   /* gap: 20px; */
 }
 .left {
-  border: 2px solid mediumpurple;
+  border: 2px solid rgba(169, 126, 255, 0.438);
   border-radius: 10px;
   width: 100%;
   height: auto;
