@@ -131,8 +131,8 @@
   .navbar {
     background-image: url("/images/Gradient1.png"),
       image-set(
-        "/images/Pattern3.webp" type("image/avif"),
-        "/images/Pattern3.png" type("image/png")
+        "/images/pattern3.webp" type("image/avif"),
+        "/images/pattern3.png" type("image/png")
       );
     background-repeat: no-repeat;
     background-size: 100% 50%, cover;
