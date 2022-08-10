@@ -25,9 +25,7 @@
   width: 30px;
   height: 30px;
   padding: 0 3rem 2.9rem 0rem;
-
   margin-right: 25%;
-
   background-color: #ffa9a941;
   border-radius: 8px;
 }
@@ -55,8 +53,6 @@
   justify-self: flex-end;
   position: absolute;
   cursor: pointer;
-
-  /* border: 2px solid orange; */
 }
 .menuOptions {
   font-style: normal;
@@ -66,7 +62,6 @@
   letter-spacing: 1px;
   color: white;
   text-align: right;
-  /* padding-bottom: 0.3rem; */
 }
 .container {
   text-align: center;
@@ -74,7 +69,6 @@
   grid-row-start: 2;
 }
 .logo {
-  /* font-family: Helvetica, sans-serif; */
   font-family: "Viga";
   font-style: normal;
   font-weight: 400;
@@ -114,7 +108,6 @@
     transform: translateY(0);
   }
   100% {
-    /* display: none; */
     visibility: hidden;
     opacity: 0;
     transform: translateY(-5px);
