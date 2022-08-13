@@ -6,11 +6,9 @@
   grid-template-rows: 20% 80%;
   position: relative;
   color: white;
+  background-image: url("/images/Gradient2.png"), url("/images/Pattern2.webp");
   background-image: url("/images/Gradient2.png"),
-    image-set(
-      "/images/Pattern2.webp" type("image/avif"),
-      "/images/Pattern2.png" type("image/png")
-    );
+    image-set("/images/Pattern2.webp", "/images/Pattern2.png");
   background-repeat: no-repeat;
   background-size: 100% 50%, cover;
   background-position: bottom, top;
@@ -116,11 +114,9 @@
 
 @media (min-width: 768px) {
   .navbar {
+    background-image: url("/images/Gradient1.png"), url("/images/Pattern1.webp");
     background-image: url("/images/Gradient1.png"),
-      image-set(
-        "/images/Pattern1.webp" type("image/avif"),
-        "/images/Pattern1.png" type("image/png")
-      );
+      image-set("/images/Pattern1.webp", "/images/Pattern1.png");
     background-repeat: no-repeat;
     background-size: 100% 50%, cover;
     background-position: bottom, center;
@@ -129,11 +125,9 @@
 }
 @media (min-width: 1920px) {
   .navbar {
+    background-image: url("/images/Gradient1.png"), url("/images/pattern3.webp");
     background-image: url("/images/Gradient1.png"),
-      image-set(
-        "/images/pattern3.webp" type("image/avif"),
-        "/images/pattern3.png" type("image/png")
-      );
+      image-set("/images/pattern3.webp", "/images/pattern3.png");
     background-repeat: no-repeat;
     background-size: 100% 50%, cover;
     background-position: bottom, center;
