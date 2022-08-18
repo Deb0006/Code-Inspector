@@ -115,7 +115,7 @@
 
 @media (min-width: 768px) {
   .navbar {
-    /* background-image: url("/images/Gradient1.png"), url("/images/Pattern1.webp"); */
+    background-image: url("/images/Gradient1.png"), url("/images/Pattern1.webp");
 
     background-repeat: no-repeat;
     background-size: 100% 50%, cover;
@@ -125,7 +125,7 @@
 }
 @media (min-width: 1920px) {
   .navbar {
-    /* background-image: url("/images/Gradient1.png"), url("/images/pattern3.webp"); */
+    background-image: url("/images/Gradient1.png"), url("/images/pattern3.webp");
 
     background-repeat: no-repeat;
     background-size: 100% 50%, cover;
