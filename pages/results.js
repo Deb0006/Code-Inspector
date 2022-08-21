@@ -4,7 +4,6 @@ import styles from "../styles/Results.module.css";
 
 const Results = () => {
   const [examples, setExamples] = useState([]);
-
   const datafromserver = examples.map((item) => {
     return (
       <Examples

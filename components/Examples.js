@@ -1,15 +1,19 @@
 import styles from ".//Examples.module.css";
-import { useState, useEffect } from "react";
-
+import Prism from "prismjs";
+import { useEffect } from "react";
+import "prismjs/components/prism-jsx.min";
 function Examples(props) {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
   // const createdAt = props.timestamp;
   // var date = new Date(createdAt.seconds * 1000).toLocaleDateString("en-US");
   return (
     <>
       <div className={styles.container}>
         <div className={styles.left}>
-          <pre>
-            <code>{props.code}</code>
+          <pre className={styles.preTag}>
+            <code className={"language-jsx"}>{props.code}</code>
           </pre>
           <style jsx>{`
             pre {
