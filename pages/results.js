@@ -28,7 +28,7 @@ const Results = () => {
     <>
       <h1 className={styles.title}>Examples</h1>
       <p className={styles.description}>
-        These code descriptions were generated in this website:
+        These are code descriptions were generated in this website:
       </p>
       {datafromserver}
     </>
