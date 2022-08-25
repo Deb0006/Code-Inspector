@@ -6,28 +6,59 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-let timestampMax = true;
+let allowRequest = true;
 
-async function checkTimestamps() {
+async function checkTimestamps(userid) {
   const data = await getFirebaseData();
+
   const today = new Date().toLocaleDateString();
-  const datesChecked = [];
+  let allRequests = 0;
+  let userRequests = 0;
+
   for (let d = 0; d < data.length; d++) {
-    const time = data[d].timestamp;
-    const date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
-    date === today ? datesChecked.push(date) : null;
+    let time = data[d].timestamp;
+    let date = new Date(time.seconds * 1000).toLocaleDateString("en-US");
+    if (userid === "null") {
+      if (date == today) {
+        allRequests++;
+      }
+    } else {
+      if (date == today) {
+        allRequests++;
+      }
+      if (date == today && data[d].uid === userid) {
+        userRequests++;
+      }
+    }
   }
 
-  datesChecked.length > 15 ? (timestampMax = false) : null;
+  if (userid === "null") {
+    if (allRequests >= 10) {
+      allowRequest = false;
+    }
+  } else {
+    if (allRequests >= 30) {
+      allowRequest = false;
+    } else {
+      if (userRequests >= 5) {
+        allowRequest = false;
+      }
+    }
+  }
+  console.log(allowRequest);
+  console.log(allRequests);
+  console.log(userRequests);
 }
 
 export default async function openaiCreate(req, res) {
-  await checkTimestamps();
-  if (timestampMax === true) {
+  await checkTimestamps(req.body.uid);
+
+  if (allowRequest === true) {
     const completion = await openai.createCompletion({
       model: "text-davinci-002",
       prompt: generatePrompt(req.body.code),
       temperature: 0.7,
+      top_p: 1,
       max_tokens: 35,
     });
     const response = completion.data.choices[0].text;
@@ -40,7 +71,7 @@ export default async function openaiCreate(req, res) {
       if (response.includes("This isn't code")) {
         null;
       } else {
-        createFirebaseData(req.body.code, response);
+        createFirebaseData(req.body.code, response, req.body.uid);
       }
       res.status(200).json({ result: response });
     } else {
@@ -49,7 +80,7 @@ export default async function openaiCreate(req, res) {
   } else {
     res.status(200).json({
       result:
-        "We're sorry, but you have exceeded the maximum number of requests. Please try again later.",
+        "We're sorry, you have exceeded the maximum number of requests. Please try again later.",
     });
   }
 }

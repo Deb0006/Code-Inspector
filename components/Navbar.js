@@ -2,10 +2,11 @@ import styles from ".//Navbar.module.css";
 import { useEffect, useRef, useState } from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
-
+import { signInWithGoogle, auth } from "../components/Login";
+import { useAuthState } from "react-firebase-hooks/auth";
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-
+  const [user] = useAuthState(auth);
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
@@ -39,6 +40,11 @@ const Navbar = () => {
         <Link href="/about">
           <span className={styles.menuOptions}>About</span>
         </Link>
+        {user ? (
+          <button onClick={() => auth.signOut()}>Sign out</button>
+        ) : (
+          <button onClick={signInWithGoogle}>Sign in</button>
+        )}
       </div>
     </nav>
   );
