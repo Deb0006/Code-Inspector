@@ -2,12 +2,16 @@ import Prism from "prismjs";
 import { useEffect, useState } from "react";
 import styles from "./Playground.module.css";
 import "prismjs/components/prism-jsx.min";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../components/Login";
 
 const Playground = () => {
   const [output, setOutput] = useState("");
   const [codeInput, setInput] = useState("");
   const [initialClass, setInitialClass] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [user] = useAuthState(auth);
+  const uid = user ? user.uid : "null";
   const example = {
     exp: "for (let i = 0; i < arr.length; i++) {\n      let removeElement = false;\n      for (let j = 0; j < valsToRemove.length; j++) {\n        if (arr[i] === valsToRemove[j]) {\n          removeElement = true;\n        }\n      }\n      if (!removeElement) {\n        filteredArray.push(arr[i]);\n      }\n    }",
     response:
@@ -24,9 +28,7 @@ const Playground = () => {
   function submitHandler(event) {
     event.preventDefault();
     const enteredInput = codeInput;
-    isLoading === true
-      ? setOutput(() => "Loading")
-      : generateDescription(enteredInput);
+    generateDescription(enteredInput);
   }
 
   async function generateDescription(enteredCode) {
@@ -36,7 +38,7 @@ const Playground = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ code: enteredCode }),
+      body: JSON.stringify({ code: enteredCode, uid: uid }),
     });
     const data = await response.json();
 

@@ -29,11 +29,12 @@ export default async function firebaseGet(req, res) {
     res.status(200).json(response);
   }
 }
-export async function createFirebaseData(input, result) {
+export async function createFirebaseData(input, result, userid) {
   await addDoc(resultsCollectionRef, {
     code: input,
     result: result,
     timestamp: serverTimestamp(),
+    uid: userid,
   });
 }
 export async function getFirebaseData(req, res) {
