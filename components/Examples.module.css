@@ -35,7 +35,7 @@
   .container {
     flex-direction: row;
     justify-content: space-between;
-    gap: 10px;
+    gap: 1rem;
   }
   .left {
     width: 60%;

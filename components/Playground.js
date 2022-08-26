@@ -17,7 +17,7 @@ const Playground = () => {
     response:
       "The previous code is written in JavaScript. It takes in an array and an array of values to remove from the original array. It then loops through the original array and checks if each element is in the array of values to remove. If it is not, it adds it to the filtered array. Finally, it returns the filtered array.",
   };
-  console.log(uid);
+
   useEffect(() => {
     Prism.highlightAll();
   }, [codeInput]);

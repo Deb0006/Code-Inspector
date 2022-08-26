@@ -41,9 +41,13 @@ const Navbar = () => {
           <span className={styles.menuOptions}>About</span>
         </Link>
         {user ? (
-          <button onClick={() => auth.signOut()}>Sign out</button>
+          <button className={styles.signIn} onClick={() => auth.signOut()}>
+            Sign out
+          </button>
         ) : (
-          <button onClick={signInWithGoogle}>Sign in</button>
+          <button className={styles.signOut} onClick={signInWithGoogle}>
+            Sign in
+          </button>
         )}
       </div>
     </nav>
