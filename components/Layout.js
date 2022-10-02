@@ -1,11 +1,11 @@
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import Footer from "./Footer";
 import styles from ".//Layout.module.css";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className={styles.wrapper}>{children}</div>
       <Footer />
     </>

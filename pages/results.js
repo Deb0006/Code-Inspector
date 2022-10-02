@@ -2,7 +2,7 @@ import Examples from "../components/Examples";
 import { useState, useEffect } from "react";
 import styles from "../styles/Results.module.css";
 
-const Results = (props) => {
+const Results = () => {
   const [examples, setExamples] = useState([]);
   const datafromserver = examples.map((item) => {
     return (
@@ -25,13 +25,13 @@ const Results = (props) => {
   }, []);
 
   return (
-    <>
+    <div>
       <h1 className={styles.title}>Examples</h1>
       <p className={styles.description}>
         These are code descriptions were generated in this website:
       </p>
       {datafromserver}
-    </>
+    </div>
   );
 };
 
