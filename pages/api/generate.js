@@ -45,9 +45,6 @@ async function checkTimestamps(userid) {
       }
     }
   }
-  console.log(allowRequest);
-  console.log(allRequests);
-  console.log(userRequests);
 }
 
 export default async function openaiCreate(req, res) {

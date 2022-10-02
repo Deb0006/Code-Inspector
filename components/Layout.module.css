@@ -6,4 +6,5 @@
   max-width: 1000px;
   margin: 0 auto;
   height: auto;
+  min-height: 500px;
 }

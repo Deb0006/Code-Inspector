@@ -22,16 +22,7 @@
   opacity: 1;
   transition: 0.4s;
 }
-/* .btnLoading {
-  background-color: #ababab;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  font-size: 16px;
-  padding: 1rem;
-  pointer-events: none;
-  cursor: not-allowed;
-} */
+
 .btn:disabled,
 .btn[disabled] {
   background-color: #909090;

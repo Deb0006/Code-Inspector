@@ -2,7 +2,7 @@ import Examples from "../components/Examples";
 import { useState, useEffect } from "react";
 import styles from "../styles/Results.module.css";
 
-const Results = () => {
+const Results = (props) => {
   const [examples, setExamples] = useState([]);
   const datafromserver = examples.map((item) => {
     return (
