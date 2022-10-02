@@ -4,6 +4,14 @@ import styles from "../styles/Results.module.css";
 
 const Results = () => {
   const [examples, setExamples] = useState([]);
+  useEffect(() => {
+    async function getExamples() {
+      const response = await fetch("/api/firebase-config");
+      const data = await response.json();
+      setExamples(data);
+    }
+    getExamples();
+  }, []);
   const datafromserver = examples.map((item) => {
     return (
       <Examples
@@ -14,15 +22,6 @@ const Results = () => {
       />
     );
   });
-
-  useEffect(() => {
-    async function getExamples() {
-      const response = await fetch("/api/firebase-config");
-      const data = await response.json();
-      setExamples(data);
-    }
-    getExamples();
-  }, []);
 
   return (
     <div>
