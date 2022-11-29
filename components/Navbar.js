@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
         <div
           className={
-            isOpen === true || undefined
+            isOpen === true || isOpen === null
               ? styles.dropdownMenu
               : styles.dropdownMenuHidden
           }

@@ -1,12 +1,19 @@
 .navbar {
   width: 100%;
   height: 376px;
-  background-image: url("/images/Gradient2.png");
-  background-image: url("/images/Gradient2.png"), url("/images/Pattern2.webp");
+  background-image: url("/images/Gradient2.png"), url("/images/PolygonM.svg");
   background-repeat: no-repeat;
   background-size: 100% 50%, cover;
   background-position: bottom, top;
-  background-color: #ff004837;
+  animation: 2s pageLoad ease-in-out;
+  @keyframes pageLoad {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 .wrapper {
   width: 100%;
@@ -137,15 +144,8 @@
     transform: translateY(-5px);
   }
 }
-
+/* screens larger than a tablet */
 @media (min-width: 768px) {
-  .navbar {
-    background-image: url("/images/Gradient1.png"), url("/images/Pattern1.webp");
-    background-repeat: no-repeat;
-    background-size: 100% 50%, cover;
-    background-position: bottom, center;
-    padding: 0%;
-  }
   .wrapper {
     display: grid;
     grid-template-columns: 35% 30% 35%;
@@ -183,12 +183,20 @@
     padding-right: 10%;
   }
 }
+
+/* media query for very large screens, larger than 1920px*/
 @media (min-width: 1920px) {
   .navbar {
-    background-image: url("/images/Gradient1.png"), url("/images/pattern3.webp");
-    background-repeat: no-repeat;
-    background-size: 100% 50%, cover;
-    background-position: bottom, center;
-    padding: 0%;
+    background-image: url("/images/Gradient.png"), url("/images/PolygonL2.svg");
+  }
+}
+.animation {
+  @keyframes pageLoad {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
