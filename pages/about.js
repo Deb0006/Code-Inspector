@@ -7,7 +7,7 @@ const About = () => {
         <p className={styles.paragraph}>
           Code-inspector provides an useful service for those who want to
           understand code better. It is easy to use and provides a summary of
-          complex topics in simple terms, making it an invaluable resource for
+          complex topics in simple terms, making it an valuable resource for
           anyone who is learning code.
         </p>
         <p className={styles.paragraph}>
