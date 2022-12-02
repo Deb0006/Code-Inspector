@@ -7,6 +7,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
   const [user] = useAuthState(auth);
+
+  
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.wrapper}>
@@ -42,7 +45,7 @@ const Navbar = () => {
         </div>
         <div
           className={
-            isOpen === true || isOpen === null
+            isOpen === true || undefined
               ? styles.dropdownMenu
               : styles.dropdownMenuHidden
           }
