@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
+// This is a public key secured with Firebase rules
 const firebaseConfig = {
   apiKey: "AIzaSyCHnCY9PRc94yRTKEg7osvbFb33M9-7b7M",
   authDomain: "code-inspectorauth.firebaseapp.com",
