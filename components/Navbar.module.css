@@ -71,7 +71,6 @@
   cursor: pointer;
 }
 .menuOptions {
-  font-style: normal;
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1.8rem;
@@ -86,10 +85,8 @@
   border: none;
   border-radius: 20px;
   font-family: "DM Sans";
-  font-style: normal;
   font-weight: 400;
-  line-height: 152.3%;
-  padding: 0.2rem 1rem;
+  padding: 0.1rem 1rem;
   font-size: 16px;
   grid-column-start: 1;
   grid-row-start: 1;
@@ -161,11 +158,4 @@ Animation for navbar links */
   .menuOptions {
     padding-left: 10%;
   }
-}
-
-/* media query for very large screens, larger than 1920px*/
-@media (min-width: 1920px) {
-  /* .navbar {
-    background-image: url("/images/Gradient.png"), url("/images/3.svg");
-  } */
 }
