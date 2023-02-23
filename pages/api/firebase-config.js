@@ -1,11 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  serverTimestamp,
-} from "firebase/firestore";
+import { collection, addDoc, getDocs, Timestamp } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_KEY,
@@ -33,7 +28,7 @@ export async function createFirebaseData(input, result, userid) {
   await addDoc(resultsCollectionRef, {
     code: input,
     result: result,
-    timestamp: serverTimestamp(),
+    timestamp: Timestamp.now(),
     uid: userid,
   });
 }
