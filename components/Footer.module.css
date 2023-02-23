@@ -1,18 +1,41 @@
 .footer {
   width: 100%;
-  height: 80px;
+  height: 110px;
   background-color: rgb(48, 48, 48);
+  margin: 0 auto;
+  padding: 1rem;
+}
+.wrapper,
+.container,
+.link {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 .wrapper {
   margin: 0 auto;
-  color: white;
+  color: rgb(173, 173, 173);
   max-width: 700px;
-  padding: 1rem;
+  height: 80px;
   align-self: center;
+  flex-direction: column;
 }
-.copywrite {
+.copyright {
   font-size: 0.8rem;
+  color: white;
+}
+.container {
+  gap: 0.5rem;
+  width: 50%;
+  height: auto;
+}
+.link {
+  padding: 0.7rem;
+  border-radius: 0.64rem;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.link:hover {
+  background-color: rgba(235, 235, 235, 0.09);
+  color: white;
 }
