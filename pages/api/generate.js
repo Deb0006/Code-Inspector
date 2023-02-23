@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { Configuration, OpenAIApi } from "openai";
 import { createFirebaseData, getFirebaseData } from "./firebase-config";
 
@@ -60,10 +59,8 @@ export default async function openaiCreate(req, res) {
     });
     const response = completion.data.choices[0].text;
 
-    // const response = "this is a test";
     //content filter
-    const filterL = await contenFilter(response);
-
+    const filterL = await contentFilter(response);
     if (filterL == "0" || filterL == "1") {
       if (response.includes("This isn't code")) {
         null;
@@ -81,7 +78,7 @@ export default async function openaiCreate(req, res) {
     });
   }
 }
-async function contenFilter(resp) {
+async function contentFilter(resp) {
   const filterResponse = await openai
     .createCompletion({
       model: "content-filter-alpha",
