@@ -12,14 +12,17 @@
   justify-content: space-between;
   padding: 1rem 0 1rem 0;
 }
-.btn {
-  background-color: #476c70;
+.btn,
+.btn2 {
   color: white;
   border: none;
-  border-radius: 15px;
   font-size: 16px;
   padding: 1rem;
   opacity: 1;
+}
+.btn {
+  background-color: #476c70;
+  border-radius: 15px;
   transition: 0.4s;
 }
 
@@ -33,12 +36,7 @@
 }
 .btn2 {
   background-color: #147ebb;
-  color: white;
-  border: none;
   border-radius: 8px;
-  font-size: 16px;
-  padding: 1rem;
-  opacity: 1;
   transition: 0.4s;
 }
 .btn:hover {
@@ -68,7 +66,7 @@
   display: flex;
   justify-items: flex-start;
   overflow-y: scroll;
-  background-color: #383838;
+  background-color: #3e3d3d;
   margin-top: 1rem;
 }
 .editor {
@@ -87,9 +85,9 @@
   position: absolute;
   resize: none !important;
   box-sizing: border-box;
-  opacity: 0.05;
-  top: -0.09rem;
-  left: -1.55rem;
+  opacity: 0.09;
+  top: -0.15rem;
+  left: -1.57rem;
   padding: 1rem 0 0 2.5rem;
   font-family: monospace, monospace;
   width: 1500px;
@@ -97,6 +95,7 @@
   min-height: 500px;
   line-height: 1.5rem;
   font-size: 1rem;
+  background-color: #f9f9f9;
   caret-color: black !important;
 }
 .editorContent:focus {
@@ -106,5 +105,12 @@
 @media (min-width: 768px) {
   .title {
     font-size: 31px;
+  }
+  .codeContainer {
+    height: 330px;
+  }
+  .editorContent,
+  .editor {
+    height: 600px;
   }
 }
