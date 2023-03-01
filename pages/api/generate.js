@@ -63,13 +63,14 @@ export default async function openaiCreate(req, res) {
     const filterL = await contentFilter(response);
     if (filterL == "0" || filterL == "1") {
       if (response.includes("This isn't code")) {
-        null;
+        createFirebaseData(req.body.code, response, req.body.uid, false);
       } else {
-        createFirebaseData(req.body.code, response, req.body.uid);
+        createFirebaseData(req.body.code, response, req.body.uid, true);
       }
       res.status(200).json({ result: response });
     } else {
       res.status(200).json({ text: "Try again, after modifying the input." });
+      createFirebaseData(req.body.code, response, req.body.uid, false);
     }
   } else {
     res.status(200).json({

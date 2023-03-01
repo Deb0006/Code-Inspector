@@ -13,14 +13,16 @@ const Results = () => {
     getExamples();
   }, []);
   const datafromserver = examples.map((item) => {
-    return (
-      <Examples
-        key={item.id}
-        code={item.code}
-        result={item.result}
-        timestamp={item.timestamp}
-      />
-    );
+    if (item.visible === true) {
+      return (
+        <Examples
+          key={item.id}
+          code={item.code}
+          result={item.result}
+          timestamp={item.timestamp}
+        />
+      );
+    }
   });
 
   return (
