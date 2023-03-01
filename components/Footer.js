@@ -6,7 +6,12 @@ function Footer() {
       <div className={styles.wrapper}>
         <p className={styles.copyright}>Created by Debby A.</p>
         <div className={styles.container}>
-          <a href="https://debby.dev/" rel="noreferrer" target="_blank">
+          <a
+            href="https://debby.dev/"
+            rel="noreferrer"
+            target="_blank"
+            aria-label="Direct link to my portfolio website"
+          >
             <div className={styles.link}>
               <svg
                 width="18"
@@ -23,6 +28,7 @@ function Footer() {
             href="https://github.com/Deb0006/Code-Inspector"
             rel="noreferrer"
             target="_blank"
+            aria-label="Direct link to my GitHub account"
           >
             <div className={styles.link}>
               <svg
