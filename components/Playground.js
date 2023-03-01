@@ -8,6 +8,7 @@ import { auth } from "../components/Login";
 const Playground = () => {
   const [output, setOutput] = useState("");
   const [codeInput, setInput] = useState("");
+  const [initialClass, setInitialClass] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [user] = useAuthState(auth);
   const uid = user ? user.uid : "null";
@@ -20,6 +21,10 @@ const Playground = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, [codeInput]);
+
+  useEffect(() => {
+    setInitialClass("language-jsx");
+  }, []);
 
   function submitHandler(event) {
     event.preventDefault();
@@ -56,7 +61,7 @@ const Playground = () => {
           Type code here to generate a description:
           <div className={styles.codeContainer}>
             <pre id="editor" className={styles.editor}>
-              <code className={"language-jsx"} id="editor-code">
+              <code className={initialClass} id="editor-code">
                 {codeInput}
               </code>
               <textarea
