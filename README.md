@@ -30,7 +30,21 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser. You can edit the page by modifying `pages/index.js` and the page will auto-update. Additionally, API routes can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello).
 
+## Setup
+To run this project, you need to create an `.env.local` file in the root of the project. Inside the file, you need to include your own private keys for the Firebase and OpenAI API.
+
+For Firebase, you will need to include:
+
+```
+FIREBASE_KEY=
+```
+
+For OpenAI, you will need to include:
+
+```
+OPENAI_API_KEY=
+```
 To learn more about Next.js and the project, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) 
 - [Learn Next.js](https://nextjs.org/learn)
-- [Next.js GitHub repository](https://github.com/vercel/next
+- [Next.js GitHub repository](https://github.com/vercel/next)
