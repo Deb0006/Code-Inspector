@@ -20,7 +20,14 @@ This is a Next.js project designed to provide an AI-powered explanation of code 
 - Code syntax highlighted with Prism.js
 
 ## Getting Started
-First, run the development server:
+
+To get started with Code Inspector, simply clone the repository and install the dependencies.
+```bash
+git clone https://github.com/Deb0006/Code-Inspector.git
+cd smartstudy
+npm install
+```
+Once the dependencies are installed, you can now run the application.
 
 ```bash
 npm run dev
